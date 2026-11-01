@@ -1,0 +1,115 @@
+```html
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Signup | CampusConnect</title>
+    <link rel="stylesheet" href="{% static 'events/style.css' %}">
+
+    <style>
+        .auth-wrapper {
+            min-height: 85vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 30px 15px;
+        }
+
+        .auth-card {
+            background: white;
+            width: 100%;
+            max-width: 450px;
+            padding: 40px;
+            border-radius: 18px;
+            box-shadow: 0 8px 30px rgba(130, 60, 150, 0.12);
+        }
+
+        .auth-card h1 {
+            text-align: center;
+            color: #a044c4;
+            margin-bottom: 8px;
+        }
+
+        .auth-card h2 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 25px;
+        }
+
+        .auth-card label {
+            display: block;
+            margin: 15px 0 7px;
+            font-weight: 600;
+        }
+
+        .auth-card input {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            box-sizing: border-box;
+            font-size: 15px;
+        }
+
+        .auth-card input:focus {
+            outline: none;
+            border-color: #b04bd0;
+        }
+
+        .auth-card button {
+            width: 100%;
+            margin-top: 22px;
+            padding: 13px;
+            border: none;
+            border-radius: 8px;
+            background: linear-gradient(90deg, #e84393, #8e44ad);
+            color: white;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .auth-card .bottom-text {
+            text-align: center;
+            margin-top: 22px;
+        }
+
+        .auth-card a {
+            color: #a044c4;
+            font-weight: bold;
+            text-decoration: none;
+        }
+    </style>
+</head>
+
+<body>
+<div class="auth-wrapper">
+    <div class="auth-card">
+
+        <h1>CampusConnect</h1>
+        <h2>Create Your Account</h2>
+
+        <form method="POST">
+            {% csrf_token %}
+
+            {{ form.as_p }}
+
+            <button type="submit">Create Account</button>
+        </form>
+
+        <p class="bottom-text">
+            Already have an account?
+            <a href="/login/">Login</a>
+        </p>
+
+        <p class="bottom-text">
+            <a href="/">← Back to Home</a>
+        </p>
+
+    </div>
+</div>
+</body>
+</html>
+```
